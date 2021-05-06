@@ -8,17 +8,21 @@
           GPA: {{ student.overallGPA }}
         </li>
       </ul>
+      <router-link :to="{ name: 'students-add-student' }" tag="button">
+        Add Student
+      </router-link>
     </div>
-    <div></div>
   </div>
 </template>
 
 <script>
 import { dataService } from "../shared/data.service";
-
+// import StudentsAddStudent from "@/views/students-add-student";
 export default {
   name: "Students",
-  components: {},
+  components: {
+    // StudentsAddStudent,
+  },
   data() {
     return {
       students: [],
