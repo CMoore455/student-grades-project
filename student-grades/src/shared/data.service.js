@@ -1,6 +1,5 @@
 import { API } from "./config";
 const getStudents = async function() {
-	console.log(API);
 	try {
 		let response = await fetch(`${API}/students`);
 		let json = await response.json();
@@ -11,7 +10,25 @@ const getStudents = async function() {
 	}
 };
 
+const addStudent = async function(student) {
+	try {
+		await fetch(`${API}/students`, {
+			method: 'post',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(student)
+		}).then((res) => {
+			return res.json();
+		});
+	} catch (error) {
+		console.error(error);
+		return [];
+	}
+};
+
 
 export const dataService = {
-	getStudents
+	getStudents,
+	addStudent
 };

@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { dataService } from "../shared/data.service";
+
 export default {
   data() {
     return {
@@ -20,7 +22,22 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.studentName, this.studentEmail);
+      // console.log(
+      //   JSON.stringify({
+      //     studentName: this.studentName,
+      //     email: this.studentEmail,
+      //     grades: [],
+      //   })
+      // );
+      dataService
+        .addStudent({
+          studentName: this.studentName,
+          email: this.studentEmail,
+          grades: [],
+        })
+        .then(() => {
+          this.$router.push({ name: "Home" });
+        });
     },
   },
 };
