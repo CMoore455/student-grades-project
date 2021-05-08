@@ -17,12 +17,8 @@
 
 <script>
 import { dataService } from "../shared/data.service";
-// import StudentsAddStudent from "@/views/students-add-student";
 export default {
   name: "Students",
-  components: {
-    // StudentsAddStudent,
-  },
   data() {
     return {
       students: [],

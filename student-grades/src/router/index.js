@@ -2,6 +2,9 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import StudentsAddStudent from '../views/students-add-student.vue';
+import CoursesAddCourse from '../views/courses-add-course.vue';
+import Courses from '../views/courses.vue';
+
 
 Vue.use(VueRouter);
 
@@ -17,9 +20,19 @@ const routes = [
     component: Home
   },
   {
+    path: '/courses',
+    name: 'Courses',
+    component: Courses
+  },
+  {
     path: '/students/addstudent',
     name: 'students-add-student',
     component: StudentsAddStudent
+  },
+  {
+    path: '/courses/addCourses',
+    name: 'courses-add-course',
+    component: CoursesAddCourse
   },
   {
     path: '/about',

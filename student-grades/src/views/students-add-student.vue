@@ -22,13 +22,6 @@ export default {
   },
   methods: {
     submit() {
-      // console.log(
-      //   JSON.stringify({
-      //     studentName: this.studentName,
-      //     email: this.studentEmail,
-      //     grades: [],
-      //   })
-      // );
       dataService
         .addStudent({
           studentName: this.studentName,

@@ -10,6 +10,17 @@ const getStudents = async function() {
 	}
 };
 
+const getCourses = async function() {
+	try {
+		let response = await fetch(`${API}/courses`);
+		let json = await response.json();
+		return json.results;
+	} catch (error) {
+		console.error(error);
+		return [];
+	}
+};
+
 const addStudent = async function(student) {
 	try {
 		await fetch(`${API}/students`, {
@@ -23,12 +34,30 @@ const addStudent = async function(student) {
 		});
 	} catch (error) {
 		console.error(error);
-		return [];
+		return {};
 	}
 };
 
+const addCourse = async function(course) {
+	try {
+		await fetch(`${API}/courses`, {
+			method: 'post',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(course)
+		}).then((res) => {
+			return res.json();
+		});
+	} catch (error) {
+		console.error(error);
+		return {};
+	}
+};
 
 export const dataService = {
 	getStudents,
-	addStudent
+	getCourses,
+	addStudent,
+	addCourse
 };
