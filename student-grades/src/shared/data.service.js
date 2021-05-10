@@ -55,9 +55,23 @@ const addCourse = async function(course) {
 	}
 };
 
+const searchGrade = async function(params) {
+	try {
+		let response = await fetch(`${API}/grades/${params.studentName}/${params.courseName}`);
+		let json = await response.json();
+		return json;
+
+	} catch (error) {
+		console.error(error);
+		return {};
+	}
+};
+
+
 export const dataService = {
 	getStudents,
 	getCourses,
 	addStudent,
-	addCourse
+	addCourse,
+	searchGrade
 };

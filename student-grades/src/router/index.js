@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import StudentsAddStudent from '../views/students-add-student.vue';
 import CoursesAddCourse from '../views/courses-add-course.vue';
 import Courses from '../views/courses.vue';
+import SearchGrades from '../views/search-grade.vue';
 
 
 Vue.use(VueRouter);
@@ -33,6 +34,11 @@ const routes = [
     path: '/courses/addCourses',
     name: 'courses-add-course',
     component: CoursesAddCourse
+  },
+  {
+    path: '/grades/search_grade',
+    name: 'search-grade',
+    component: SearchGrades
   },
   {
     path: '/about',
